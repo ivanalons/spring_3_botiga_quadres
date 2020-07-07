@@ -1,5 +1,6 @@
 package com.shops.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,10 @@ public class PictureServiceImpl implements IPictureService{
 		//Si s'ha superat la capacitat màxima de la botiga no afegir mes quadres
 		if(numPictures==capacity) {
 			return null; 
+		}
+		
+		if (picture.getDate()==null) { //Si no s'indica la hora es guarda l'hora actual	
+			picture.setDate(new Date());
 		}
 		
 		picture.setShop(shop); //Afegir el nou quadre a la botiga 
