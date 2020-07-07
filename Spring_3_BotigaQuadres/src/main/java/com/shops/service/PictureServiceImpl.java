@@ -27,6 +27,13 @@ public class PictureServiceImpl implements IPictureService{
 		//Shop shop = new Shop();
 		//shop.setId(shopId);
 		
+		int capacity = shop.getPicturesCapacity();
+		int numPictures = shop.getPictures().size();
+		
+		if(numPictures==capacity) {
+			return null; //Si s'ha superat la capacitat màxima de la botiga no afegir mes quadres
+		}
+		
 		picture.setShop(shop);
 		
 		return iPictureDAO.save(picture);
