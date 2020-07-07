@@ -29,7 +29,7 @@ public class Shop {
 	private int picturesCapacity;
 	
 	@OneToMany
-	@JoinColumn( name = "id")
+	@JoinColumn( name = "shop_id")
 	private List<Picture> pictures;
 	
 	public Shop(){

@@ -25,7 +25,8 @@ INSERT INTO SHOPS(name,pictures_capacity) VALUES ('Shop2',10);
 INSERT INTO PICTURES(author,name,price,date,shop_id) VALUES ('Picasso','Ciudad','10.3',NOW(),1);
 INSERT INTO PICTURES(author,name,price,date,shop_id) VALUES ('Dali','Cementerio','20.3',NOW(),1);
 
-
+INSERT INTO PICTURES(author,name,price,date,shop_id) VALUES ('Vangoj','Paisaje','10.3',NOW(),2);
+INSERT INTO PICTURES(author,name,price,date,shop_id) VALUES ('Murillo','Cubismo','20.3',NOW(),2);
 
 
 

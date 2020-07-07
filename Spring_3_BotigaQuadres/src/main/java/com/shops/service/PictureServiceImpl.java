@@ -24,6 +24,9 @@ public class PictureServiceImpl implements IPictureService{
 
 		Shop shop = iShopDAO.findById(shopId).get();
 		
+		//Shop shop = new Shop();
+		//shop.setId(shopId);
+		
 		picture.setShop(shop);
 		
 		return iPictureDAO.save(picture);
