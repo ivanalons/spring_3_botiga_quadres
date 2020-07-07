@@ -1,5 +1,7 @@
 package com.shops.service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class PictureServiceImpl implements IPictureService{
 		}
 		
 		if (picture.getDate()==null) { //Si no s'indica la hora es guarda l'hora actual	
-			picture.setDate(new Date());
+			picture.setDate(getCurrentDateTimeZone());
 		}
 		
 		picture.setShop(shop); //Afegir el nou quadre a la botiga 
@@ -69,4 +71,24 @@ public class PictureServiceImpl implements IPictureService{
 		
 	}
 
+	//TODO FALTA ARREGLAR UTC+2 DATE (NO FUNCIONA ZONEOFFSET)
+	private Date getCurrentDateTimeZone() {
+		
+		Date newDate = null;
+		
+		try {
+			
+	        LocalDateTime localDateTime = LocalDateTime.now().plusHours(2);
+	        
+	        ZoneOffset zoneOffSet= ZoneOffset.of("+02:00");
+	        newDate = Date.from(localDateTime.toInstant(zoneOffSet));
+	       
+	        
+		}catch (Exception e) {
+			System.out.println("Error al pasar timezone.");
+		}	
+		
+		return newDate;
+		
+	}
 }
