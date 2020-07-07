@@ -71,7 +71,7 @@ public class PictureServiceImpl implements IPictureService{
 		
 	}
 
-	//TODO FALTA ARREGLAR UTC+2 DATE (NO FUNCIONA ZONEOFFSET)
+	//TODO HARDCODED UTC+2 (NO FUNCIONA ZONEOFFSET)
 	private Date getCurrentDateTimeZone() {
 		
 		Date newDate = null;
