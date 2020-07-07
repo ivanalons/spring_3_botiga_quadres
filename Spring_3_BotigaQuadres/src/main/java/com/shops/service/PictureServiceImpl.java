@@ -13,6 +13,8 @@ import com.shops.dto.Shop;
 @Service
 public class PictureServiceImpl implements IPictureService{
 
+	//Obtenim tots els DAO que necessitarem per a operar sobre la BBDD
+	
 	@Autowired
 	IShopDAO iShopDAO;
 	@Autowired
@@ -22,21 +24,20 @@ public class PictureServiceImpl implements IPictureService{
 	@Override
 	public Picture addPicture(Long shopId, Picture picture) {
 
-		Shop shop = iShopDAO.findById(shopId).get();
-		
-		//Shop shop = new Shop();
-		//shop.setId(shopId);
+		//Obtenim la botiga amb identificador "shopId" a la qual afegir el quadre
+		Shop shop = iShopDAO.findById(shopId).get(); 
 		
 		int capacity = shop.getPicturesCapacity();
 		int numPictures = shop.getPictures().size();
 		
+		//Si s'ha superat la capacitat màxima de la botiga no afegir mes quadres
 		if(numPictures==capacity) {
-			return null; //Si s'ha superat la capacitat màxima de la botiga no afegir mes quadres
+			return null; 
 		}
 		
-		picture.setShop(shop);
+		picture.setShop(shop); //Afegir el nou quadre a la botiga 
 		
-		return iPictureDAO.save(picture);
+		return iPictureDAO.save(picture); //Guardar el quadre
 	}
 
 	@Override

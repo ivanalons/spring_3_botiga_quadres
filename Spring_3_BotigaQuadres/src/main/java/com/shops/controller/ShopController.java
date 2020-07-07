@@ -21,7 +21,7 @@ public class ShopController {
 	
 	@PostMapping("/shops")
 	public Shop createShop(@RequestBody Shop shop) {
-		System.out.println(shop.toString());
+		//System.out.println(shop.toString());
 		return shopServiceImpl.createShop(shop);
 	}
 	
